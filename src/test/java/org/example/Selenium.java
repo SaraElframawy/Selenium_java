@@ -7,12 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.locators.RelativeLocator;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-
+import org.testng.annotations.*;
 
 
 public class Selenium {
@@ -72,6 +69,17 @@ public class Selenium {
 
 
     }
+
+    @Test
+    public void dynmaicButtonClick(){
+        driver.get("https://demoqa.com/buttons");
+
+        By dynmaicButton = RelativeLocator.with(By.tagName("button")).below(By.id(("rightClickBtn")));
+        //click on the button below the right click button on  the page
+        driver.findElement(dynmaicButton).click();
+    }
+
+
     @Test
     public void radioButtons(){
         driver.get(url+ "/radiobutton-demo");
@@ -81,7 +89,20 @@ public class Selenium {
 
 
     }
-    @AfterClass
+    @Test()
+    public void test_Prairi(){
+        driver.navigate().to("https://prairi.com/");
+
+        driver.findElement(By.linkText("Log In")).click();
+        driver.findElement(By.xpath("//input[@type ='text' and @name ='username']"))
+                .sendKeys("sara.elfaramawy.93@gmail.com");
+        driver.findElement(By.xpath("//input[@type ='password' and @name ='password']"))
+                .sendKeys("Itisanewlife325");
+        driver.findElement(By.xpath("//input[@type ='submit' and @value ='Log In' ]")).click();
+
+
+    }
+    @AfterMethod
     public void tearDown () throws InterruptedException {
         Thread.sleep(5000);
         driver.quit();
