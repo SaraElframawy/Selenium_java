@@ -20,7 +20,7 @@ public class SimpleFormDemoPage  extends BasePage{
     }
 @Step("click on the 'get checked button'")
     public void clickGetCheckedValueButton(){
-        click(getCheckedValueButton);
+        click(getCheckedValueButton,1);
     }
     @Step("Get the displayed message")
     public String getDisplayedMessage(){

@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeMethod;
 
 public class BasePage {
-    private static WebDriver driver;
+    public static WebDriver driver;
 
     public void setDriver(WebDriver driver) {
         this.driver = driver;
@@ -19,7 +19,7 @@ public class BasePage {
 
     }
 
-    protected void click(By locator) {
+    protected void click(By locator ,int index) {
         find(locator).click();
     }
 
