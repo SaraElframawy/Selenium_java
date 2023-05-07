@@ -1,10 +1,10 @@
 package org.example.test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -27,14 +27,14 @@ public class BaseTest {
     public void setup(){
         driver = new ChromeDriver();
         driver.manage().window().setPosition(new Point(2000,0));
-        driver.manage().window().minimize();
+        driver.manage().window().maximize();
         driver.get(url);
         landingPage = new LandingPage();
         landingPage.setDriver(driver);
     }
     @AfterMethod
     public void tearDown() throws InterruptedException {
-        Thread.sleep(10000);
+        Thread.sleep(5000);
         driver.quit();
     }
 }

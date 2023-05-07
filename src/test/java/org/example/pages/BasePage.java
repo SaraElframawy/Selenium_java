@@ -3,14 +3,13 @@ package org.example.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.BeforeMethod;
+
 
 public class BasePage {
-    public static WebDriver driver;
+  protected static WebDriver driver;
 
     public void setDriver(WebDriver driver) {
-        this.driver = driver;
+        BasePage.driver = driver;
 
     }
 
@@ -19,7 +18,7 @@ public class BasePage {
 
     }
 
-    protected void click(By locator ,int index) {
+    protected  void click(By locator) {
         find(locator).click();
     }
 

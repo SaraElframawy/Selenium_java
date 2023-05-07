@@ -12,17 +12,21 @@ import java.time.Duration;
 //        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(image));
 
 public class JavascriptAlertPage extends BasePage {
-    private final By allClickMeButtons = By.xpath("//button[text()='Click Me']");
+    private final By allClickMeButtons = By.xpath("//*[@id=\"__next\"]/section[4]/div/div/div[2]/div[3]/p[3]/button");
+
     public void clickPromptBox(){
-        click(allClickMeButtons,2);
+
+        click(allClickMeButtons);
     }
     public void pressAndPressOk(String input){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         alert.sendKeys(input);
         alert.accept();
 
     }
+
 
 
 }

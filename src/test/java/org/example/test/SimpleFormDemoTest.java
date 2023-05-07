@@ -2,7 +2,8 @@ package org.example.test;
 
 import io.qase.api.annotation.QaseTitle;
 import io.qase.api.annotation.Step;
-import org.example.pages.LandingPage;
+
+
 import org.example.pages.SimpleFormDemoPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -15,11 +16,11 @@ public class SimpleFormDemoTest extends BaseTest {
      //given
      String testMessage = "Test";
      //when
-     SimpleFormDemoPage simpleFormDemoPage = landingPage.followLinkToSimpleDemo();
-     simpleFormDemoPage.typeInfoSingleInputField(testMessage);
-     simpleFormDemoPage.clickGetCheckedValueButton();
+  SimpleFormDemoPage simpleFormDemoPage = landingPage.followLinkToSimpleFormDemo();
+     simpleFormDemoPage.typeIntoSingleInputField(testMessage);
+     simpleFormDemoPage.clickGetCHeckedValueButton();
   //instead of writing driver.findElemnent(By.id ()).click();
-     String result = simpleFormDemoPage.getDisplayedMessage();
+     String result = simpleFormDemoPage.getDisplayedMessageText();
 
   //instaed of driver.findElement(By.id()).getText();
   //we use our own written method to specify them to make them in less steps and changeable easily
@@ -32,6 +33,9 @@ public class SimpleFormDemoTest extends BaseTest {
  private static void getAssertEquals(String testMessage, String result) {
   Assert.assertEquals(testMessage, result );
  }
+
+
+
 
 
 }
